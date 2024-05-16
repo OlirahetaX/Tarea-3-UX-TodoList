@@ -1,23 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import TodoList from './Components/TodoList';
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap.min.js"
+import React,{useEffect} from 'react';
 
 function App() {
+
+  useEffect(() => {
+    document.body.style.backgroundColor = '#3AAFA9';
+
+    // Limpiar el efecto cuando el componente se desmonte
+    return () => {
+      document.body.style.backgroundColor = '';
+    };
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <TodoList />
     </div>
   );
 }
